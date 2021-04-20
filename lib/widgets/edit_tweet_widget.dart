@@ -23,11 +23,12 @@ class _EditTweetState extends State<EditTweet> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Post A New Tweet'),
+      title: Text('Edit Your Tweet'),
       content: _isLoading
           ? CircularProgressIndicator()
           : Container(
               child: TextFormField(
+                decoration: InputDecoration(hintText: 'Tweet can\'t be empty'),
                 maxLines: 10,
                 minLines: 1,
                 autofocus: true,
@@ -47,9 +48,15 @@ class _EditTweetState extends State<EditTweet> {
         ),
         TextButton(
           onPressed: () async {
+            ///This will check if the field is empty, no submission will take place.
+            if (_tweetController.text.isEmpty) return;
+             ///This will check if the old value is equal to the new value, no submission will take place, and the dialoge will close.
+            if (_tweetController.text == widget.tweet.body) return Navigator.of(context).pop();
             setState(() {
               _isLoading = true;
             });
+
+            ///Here, we're changing the value to the new values before submitting them to firebase.
             widget.tweet.edited = true;
             widget.tweet.body = _tweetController.text;
             widget.tweet.timeStamp = Timestamp.now();

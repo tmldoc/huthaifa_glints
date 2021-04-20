@@ -27,6 +27,7 @@ class _NewTweetState extends State<NewTweet> {
                 autofocus: true,
                 maxLength: 280,
                 controller: _tweetController,
+                decoration: InputDecoration(hintText: 'Tweet can\'t be empty'),
               ),
             ),
       actions: [
@@ -41,6 +42,9 @@ class _NewTweetState extends State<NewTweet> {
         ),
         TextButton(
           onPressed: () async {
+            ///Here it doesn't accept the publish if the value is empty
+            if (_tweetController.text.isEmpty) return;
+            
             setState(() {
               _isLoading = true;
             });

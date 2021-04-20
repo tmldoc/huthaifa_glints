@@ -26,24 +26,27 @@ class TweetCard extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
+              isThreeLine: true,
               leading: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
                 child: Image.network(tweet.appUser.image),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 10.0, bottom: 5.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       '@' + tweet.appUser.userName,
                     ),
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           DateFormat("hh:mm:ss a - MMM d, yyyy")
                               .format(DateTime.fromMillisecondsSinceEpoch(tweet.timeStamp.millisecondsSinceEpoch)),
                         ),
+                        ///If the tweet was edited, we'll show this small text
                         tweet.edited ? Text('edited') : Container(),
                       ],
                     )

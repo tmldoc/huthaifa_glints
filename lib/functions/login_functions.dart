@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:com_huthaifa_glints/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
+///Class holding login functions, then handling the results of this login. First we authenticate with google, if authenticated susseccfully, I'll take the data returned fromt he user credential, and create a user with this data in our database. If the user doesn't exist, we create a user then return it, if it exists, we return the user.
 class LoginFunctions {
   ///Trigers sign in with google function
   Future<UserCredential?> signInWithGoogle() async {

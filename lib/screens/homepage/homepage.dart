@@ -4,9 +4,9 @@ import 'package:com_huthaifa_glints/widgets/tweetStreamBuilder_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key, this.title}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
-  final String? title;
+  
 
   @override
   _HomePageState createState() => _HomePageState();

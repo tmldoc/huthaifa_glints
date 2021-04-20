@@ -8,7 +8,7 @@ class GoogleSigninButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _loginState = Provider.of<LoginState>(context, listen: true);
-
+//Here we're listening to the provider of LoginState, and updating the UI accordingly.
     return !_loginState.isSignedIn
         ? _loginState.isSigningIn
             ? CircularProgressIndicator()

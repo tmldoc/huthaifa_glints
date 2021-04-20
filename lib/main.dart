@@ -24,13 +24,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: Consumer<LoginState>(builder: (context, loginState, __) {
-          return loginState.isSignedIn ? HomePage(title: 'Huthaifa\'s Twitter Clone') : LoginPage();
+          return loginState.isSignedIn ? HomePage() : LoginPage();
         }),
-        onGenerateRoute: (RouteSettings settings) {
-          Map<dynamic, dynamic> routes = {};
-          WidgetBuilder builder = routes[settings.name]!;
-          return MaterialPageRoute(builder: (ctx) => builder(ctx));
-        },
       ),
     );
   }
