@@ -21,5 +21,7 @@ class LoginState extends ChangeNotifier {
 
   void signOut() async {
     await LoginFunctions().signOut();
+    _isSignedIn = false;
+    notifyListeners();
   }
 }
