@@ -8,7 +8,7 @@ import 'screens/homepage/homepage.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  print('💪🌟💪 GLINTSARS... WE GOT THIS 💪🌟💪');
+  print('💪🌟💪 GLINTStars... WE GOT THIS 💪🌟💪');
   runApp(MyApp());
 }
 

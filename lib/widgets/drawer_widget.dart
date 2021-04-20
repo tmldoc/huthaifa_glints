@@ -20,13 +20,7 @@ class DrawerWidget extends StatelessWidget {
                 child: CircleAvatar(backgroundImage: NetworkImage(_loginState.user.image)),
               ),
               Text(
-                _loginState.user.userName,
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
-              Text(
-                '@' + _loginState.user.nickName,
+                '@' + _loginState.user.userName,
                 style: TextStyle(
                   color: Colors.black,
                 ),
@@ -49,9 +43,7 @@ class DrawerWidget extends StatelessWidget {
               Navigator.of(context).pop();
               Navigator.of(context).push(
                 PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      // UserTitle(email: email, image: userProfilePicture, name: fullName),
-                      TweetHistoryPage(),
+                  pageBuilder: (context, animation, secondaryAnimation) => TweetHistoryPage(),
                 ),
               );
             },

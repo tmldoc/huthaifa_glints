@@ -3,13 +3,11 @@ import 'dart:convert';
 class AppUser {
   String id;
   String userName;
-  String nickName;
   String email;
   String image;
   AppUser({
     this.id = '',
     this.userName = '',
-    this.nickName = '',
     this.email = '',
     this.image = '',
   });
@@ -19,7 +17,6 @@ class AppUser {
     return {
       'id': id,
       'userName': userName,
-      'nickName': nickName,
       'email': email,
       'image': image,
     };
@@ -27,11 +24,10 @@ class AppUser {
 
   factory AppUser.fromMap(Map<String, dynamic> map) {
     return AppUser(
-      id: map['id'].toString(),
-      userName: map['userName'].toString(),
-      nickName: map['nickName'].toString(),
-      email: map['email'].toString(),
-      image: map['image'].toString(),
+      id: map['id'],
+      userName: map['userName'],
+      email: map['email'],
+      image: map['image'],
     );
   }
 
@@ -41,7 +37,7 @@ class AppUser {
 
   @override
   String toString() {
-    return 'AppUser(id: $id, userName: $userName, nickName: $nickName, email: $email, image: $image)';
+    return 'AppUser(id: $id, userName: $userName, email: $email, image: $image)';
   }
 
   @override
@@ -51,7 +47,6 @@ class AppUser {
     return other is AppUser &&
       other.id == id &&
       other.userName == userName &&
-      other.nickName == nickName &&
       other.email == email &&
       other.image == image;
   }
@@ -60,8 +55,21 @@ class AppUser {
   int get hashCode {
     return id.hashCode ^
       userName.hashCode ^
-      nickName.hashCode ^
       email.hashCode ^
       image.hashCode;
+  }
+
+  AppUser copyWith({
+    String? id,
+    String? userName,
+    String? email,
+    String? image,
+  }) {
+    return AppUser(
+      id: id ?? this.id,
+      userName: userName ?? this.userName,
+      email: email ?? this.email,
+      image: image ?? this.image,
+    );
   }
 }

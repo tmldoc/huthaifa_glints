@@ -1,4 +1,6 @@
-import 'package:com_huthaifa_glints/screens/homepage/drawer_widget.dart';
+import 'package:com_huthaifa_glints/widgets/drawer_widget.dart';
+import 'package:com_huthaifa_glints/widgets/new_tweet_widget.dart';
+import 'package:com_huthaifa_glints/widgets/tweetStreamBuilder_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,19 +20,9 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title!),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Welcome to twitter',
-            ),
-          ],
-        ),
-      ),
+      body: TweetStreamBuilder(canEdit: false),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: "Create Tweet",
+        onPressed: () => showDialog<void>(context: context, builder: (context) => NewTweet()),
         child: Icon(
           Icons.add_circle,
           semanticLabel: "Create Tweet",

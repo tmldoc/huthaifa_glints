@@ -1,16 +1,17 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:com_huthaifa_glints/models/user_model.dart';
 
 class Tweet {
   String id;
   String body;
-  String timeStamp;
+  Timestamp timeStamp;
   AppUser appUser;
   Tweet({
-    this.id = '',
-    this.body = '',
-    this.timeStamp = '',
+    required this.id,
+    required this.body,
+    required this.timeStamp,
     required this.appUser,
   });
 
@@ -25,8 +26,8 @@ class Tweet {
 
   factory Tweet.fromMap(Map<String, dynamic> map) {
     return Tweet(
-      id: map['id'],
-      body: map['body'],
+      id: map['id'].toString(),
+      body: map['body'].toString(),
       timeStamp: map['timeStamp'],
       appUser: AppUser.fromMap(map['appUser']),
     );
@@ -44,33 +45,16 @@ class Tweet {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Tweet &&
-      other.id == id &&
-      other.body == body &&
-      other.timeStamp == timeStamp &&
-      other.appUser == appUser;
+        other.id == id &&
+        other.body == body &&
+        other.timeStamp == timeStamp &&
+        other.appUser == appUser;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^
-      body.hashCode ^
-      timeStamp.hashCode ^
-      appUser.hashCode;
-  }
-
-  Tweet copyWith({
-    String? id,
-    String? body,
-    String? timeStamp,
-    AppUser? appUser,
-  }) {
-    return Tweet(
-      id: id ?? this.id,
-      body: body ?? this.body,
-      timeStamp: timeStamp ?? this.timeStamp,
-      appUser: appUser ?? this.appUser,
-    );
+    return id.hashCode ^ body.hashCode ^ timeStamp.hashCode ^ appUser.hashCode;
   }
 }
