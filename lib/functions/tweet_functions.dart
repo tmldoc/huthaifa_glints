@@ -8,7 +8,7 @@ publishNewTweet(Tweet tweet) async {
 }
 
 editTweet(Tweet tweet) async {
-  return await _tweetCollectionReference.doc(tweet.id).update({"body": tweet.body, "timeStamp": tweet.timeStamp});
+  return await _tweetCollectionReference.doc(tweet.id).update(tweet.toMap());
 }
 
 deleteTweet(String tweetId) async {

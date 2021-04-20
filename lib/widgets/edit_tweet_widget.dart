@@ -4,7 +4,7 @@ import 'package:com_huthaifa_glints/models/tweet_model.dart';
 import 'package:flutter/material.dart';
 
 class EditTweet extends StatefulWidget {
-  Tweet tweet;
+  final Tweet tweet;
   EditTweet({required this.tweet});
   @override
   _EditTweetState createState() => _EditTweetState();
@@ -50,6 +50,7 @@ class _EditTweetState extends State<EditTweet> {
             setState(() {
               _isLoading = true;
             });
+            widget.tweet.edited = true;
             widget.tweet.body = _tweetController.text;
             widget.tweet.timeStamp = Timestamp.now();
             await editTweet(widget.tweet).then(

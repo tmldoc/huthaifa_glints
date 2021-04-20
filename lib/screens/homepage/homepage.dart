@@ -18,13 +18,24 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: DrawerWidget(),
       appBar: AppBar(
-        title: Text(widget.title!),
+        actions: [
+          IconButton(
+            onPressed: () => showDialog<void>(context: context, builder: (context) => NewTweet()),
+            icon: Icon(
+              Icons.add,
+              size: 35,
+              semanticLabel: "Create Tweet",
+            ),
+          )
+        ],
+        title: Text('Home Page'),
       ),
-      body: TweetStreamBuilder(canEdit: false),
+      body: TweetStreamBuilder(historyView: false),
       floatingActionButton: FloatingActionButton(
         onPressed: () => showDialog<void>(context: context, builder: (context) => NewTweet()),
         child: Icon(
           Icons.add_circle,
+          size: 40,
           semanticLabel: "Create Tweet",
         ),
       ),

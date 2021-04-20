@@ -48,6 +48,7 @@ class _NewTweetState extends State<NewTweet> {
                 id: generateId(),
                 body: _tweetController.text,
                 timeStamp: Timestamp.now(),
+                edited: false,
                 appUser: Provider.of<LoginState>(context, listen: false).user);
             await publishNewTweet(_tweet).then(
               (value) {

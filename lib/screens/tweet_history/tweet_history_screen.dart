@@ -10,7 +10,7 @@ class TweetHistoryPage extends StatelessWidget {
           title: Text('Tweet History'),
         ),
         body: TweetStreamBuilder(
-          canEdit: true,
+          historyView: true,
         ));
   }
 }

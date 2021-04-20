@@ -8,11 +8,13 @@ class Tweet {
   String body;
   Timestamp timeStamp;
   AppUser appUser;
+  bool edited;
   Tweet({
     required this.id,
     required this.body,
     required this.timeStamp,
     required this.appUser,
+    required this.edited,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,15 +23,17 @@ class Tweet {
       'body': body,
       'timeStamp': timeStamp,
       'appUser': appUser.toMap(),
+      'edited': edited,
     };
   }
 
   factory Tweet.fromMap(Map<String, dynamic> map) {
     return Tweet(
-      id: map['id'].toString(),
-      body: map['body'].toString(),
+      id: map['id'],
+      body: map['body'],
       timeStamp: map['timeStamp'],
       appUser: AppUser.fromMap(map['appUser']),
+      edited: map['edited'] ?? false,
     );
   }
 
@@ -39,7 +43,7 @@ class Tweet {
 
   @override
   String toString() {
-    return 'Tweet(id: $id, body: $body, timeStamp: $timeStamp, appUser: $appUser)';
+    return 'Tweet(id: $id, body: $body, timeStamp: $timeStamp, appUser: $appUser, edited: $edited)';
   }
 
   @override
@@ -50,11 +54,28 @@ class Tweet {
         other.id == id &&
         other.body == body &&
         other.timeStamp == timeStamp &&
-        other.appUser == appUser;
+        other.appUser == appUser &&
+        other.edited == edited;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^ body.hashCode ^ timeStamp.hashCode ^ appUser.hashCode;
+    return id.hashCode ^ body.hashCode ^ timeStamp.hashCode ^ appUser.hashCode ^ edited.hashCode;
+  }
+
+  Tweet copyWith({
+    String? id,
+    String? body,
+    Timestamp? timeStamp,
+    AppUser? appUser,
+    bool? edited,
+  }) {
+    return Tweet(
+      id: id ?? this.id,
+      body: body ?? this.body,
+      timeStamp: timeStamp ?? this.timeStamp,
+      appUser: appUser ?? this.appUser,
+      edited: edited ?? this.edited,
+    );
   }
 }
