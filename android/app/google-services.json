@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1033663828555",
+    "project_id": "cloudfunctiontests-6c4ca",
+    "storage_bucket": "cloudfunctiontests-6c4ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033663828555:android:9226d118c3501b8ebcf3ce",
+        "android_client_info": {
+          "package_name": "com.huthaifa.glints"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033663828555-2oiogptccfhb14186a57v5gfuphiq32c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq2rWoNNB1S4eEUkhV9W23N8wWfVtQPLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033663828555-2oiogptccfhb14186a57v5gfuphiq32c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

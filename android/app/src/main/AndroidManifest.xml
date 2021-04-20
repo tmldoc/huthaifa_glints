@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.huthaifa_glints">
+    package="com.huthaifa.glints">
    <application
         android:label="huthaifa_glints"
         android:icon="@mipmap/ic_launcher">

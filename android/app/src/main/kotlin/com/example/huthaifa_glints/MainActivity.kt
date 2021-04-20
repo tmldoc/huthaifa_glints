@@ -1,4 +1,4 @@
-package com.example.huthaifa_glints
+package com.huthaifa.glints
 
 import io.flutter.embedding.android.FlutterActivity
 
