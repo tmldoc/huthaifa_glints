@@ -14,21 +14,6 @@ class AppUser {
     this.image = '',
   });
 
-  AppUser copyWith({
-    String? id,
-    String? userName,
-    String? nickName,
-    String? email,
-    String? image,
-  }) {
-    return AppUser(
-      id: id ?? this.id,
-      userName: userName ?? this.userName,
-      nickName: nickName ?? this.nickName,
-      email: email ?? this.email,
-      image: image ?? this.image,
-    );
-  }
 
   Map<String, dynamic> toMap() {
     return {
@@ -42,11 +27,11 @@ class AppUser {
 
   factory AppUser.fromMap(Map<String, dynamic> map) {
     return AppUser(
-      id: map['id'],
-      userName: map['userName'],
-      nickName: map['nickName'],
-      email: map['email'],
-      image: map['image'],
+      id: map['id'].toString(),
+      userName: map['userName'].toString(),
+      nickName: map['nickName'].toString(),
+      email: map['email'].toString(),
+      image: map['image'].toString(),
     );
   }
 

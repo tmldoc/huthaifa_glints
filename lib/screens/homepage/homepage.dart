@@ -29,12 +29,13 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: "Create Tweet",
-          child: Icon(
-            Icons.add_circle,
-            semanticLabel: "Create Tweet",
-          )), // This trailing comma makes auto-formatting nicer for build methods.
+        onPressed: () {},
+        tooltip: "Create Tweet",
+        child: Icon(
+          Icons.add_circle,
+          semanticLabel: "Create Tweet",
+        ),
+      ),
     );
   }
 }
