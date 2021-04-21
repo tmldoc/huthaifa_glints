@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:com_huthaifa_glints/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 ///Class holding login functions, then handling the results of this login. First we authenticate with google, if authenticated susseccfully, I'll take the data returned fromt he user credential, and create a user with this data in our database. If the user doesn't exist, we create a user then return it, if it exists, we return the user.
 class LoginFunctions {
   ///Trigers sign in with google function
@@ -44,9 +45,12 @@ class LoginFunctions {
       } else {
         return await createUser(_userCredential);
       }
-    }).catchError((error) async {
-      print('Failed to sign in or signup, error:  $error');
-    }));
+    }).catchError(
+      (error) {
+        print('Failed to sign in or signup, error:  $error');
+        throw error;
+      },
+    ));
   }
 
   Future<AppUser> createUser(UserCredential userCredential) async {
@@ -57,10 +61,14 @@ class LoginFunctions {
     _appUser.id = _firebaseUser.uid;
     _appUser.email = _firebaseUser.email ?? "error in email";
     _appUser.userName = _firebaseUser.displayName ?? "error in usename";
-    _appUser.image =
-        _firebaseUser.photoURL ?? 'https://cdn.iconscout.com/icon/premium/png-256-thumb/verified-phone-890923.png';
+    _appUser.image = _firebaseUser.photoURL ?? 'https://upload.wikimedia.org/wikipedia/commons/d/df/GLINTS_LOGO293.png';
 
-    await users.doc(_appUser.id).set(_appUser.toMap());
+    await users.doc(_appUser.id).set(_appUser.toMap()).catchError(
+      (error) {
+        print('Failed to sign in or signup, error:  $error');
+        throw error;
+      },
+    );
     return _appUser;
   }
 
