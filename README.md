@@ -1,13 +1,33 @@
 # Huthaifa's Submission for Glints Technical Assessment
 (One-Person Twitter App) using Flutter and simple provider for state managment.
 
+
+ ## Previous Project workFlow:
+
+https://youtu.be/WbRdBw73_BE
+
+ I realized after sending the video that I forgot to mention plenty of other things:
+ - Data entry, chefs enter their own data, from the chef app.
+ - Automatic and instant google translation to English, where chefs can see and edit the newly entered data before submission.
+ - Full Slack and Zapier integrations, where notifications are sent once triggered, for example, putting in an order, or a bug happens, or a crash report, it's sent to a slack chanel.
+ - Iporting data into google sheets, happens automatically, after it's sent to slack. There is no more manual data entry for orders, their value, notes..etc.
+ - After google sheets, the values are migrated automatically to Quickbooks, which is the accoutning system.
+ - Full integration with Google analytics and Facebook analytics\app events.
+ - A payment gateway for accepting online payments, Paypal Credit Cards and GooglePay. 
+
+These features are all currently in the app I'm recording in the link above.Should you require more videos, I'll be happy to record them.
+
+
+
+## WorkFlow of Twitter App
+
  💪 Built with sound null safety 💪
 
   - Build using firebase streams and streambuilders.
   - Users can edit and delete their posts.
   - Implemented google signIn, via Firebase.
   
-## Getting Started
+
 Here is a workflow of the app, they are videos with sound.
 
   - 1
